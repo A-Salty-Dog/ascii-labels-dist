@@ -122,7 +122,7 @@ The tool reads `template.txt` (which contains both the ASCII layout and the INI 
 
 ## Installation
 
-Download the Windows executable directly from the [ditribution project page](https://github.com/A-Salty-Dog/ascii-labels-dist).
+Download the executable directly from the [ditribution project page](https://github.com/A-Salty-Dog/ascii-labels-dist).
 
 No installation needed — just unzip and run.
 
