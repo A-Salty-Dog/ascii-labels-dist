@@ -29,39 +29,6 @@ From those inputs it generates:
 
 ---
 
-## Project Structure
-
-The repository is a single Go module (`ascii-labels`) divided into two packages:
-
-| File / Package | Responsibility |
-|---|---|
-| `main.go` | Entry point; orchestrates parse → render pipeline |
-| `parser/` | ASCII template analysis, CSV/text I/O, config parsing |
-| `model/` | Shared data types: `Block`, `GlobalConfig` |
-| `render/` | SVG and PDF rendering, text-flow engine |
-
-**Parser package files:**
-
-| File | Contents |
-|---|---|
-| `grid.go` | `Grid` type — bounding-box crop of the raw layout |
-| `scanner.go` | `ScanSegments` — detects all `+…+` segments |
-| `rectangles.go` | `findRectangles` — closed rectangles; IDs from inner digit |
-| `lines.go` | `findLines` — independent lines; removes split frames |
-| `points.go` | `findPoints` — isolated `+` markers |
-| `parser.go` | `ParseTemplate`, `ReadCSV`, `ReadTextFile`, `ExtractLayout`, `ApplyConfig` |
-
-**Render package files:**
-
-| File | Contents |
-|---|---|
-| `render.go` | `Renderer` interface, `RenderRow`, `renderCodeBlock`, shared utilities |
-| `render_svg.go` | `svgRenderer` — writes SVG markup to an `io.Writer` |
-| `render_pdf.go` | `pdfRenderer` — wraps gofpdf, writes a multi-page PDF |
-| `text_flow.go` | `FlowTextIntoFrames` — reflowable text layout engine |
-
----
-
 ## Template File Format (`template.txt`)
 
 The template file has two sections separated by the first line that begins with `[` (an INI section header). Lines whose first character is `#` are treated as comments and discarded.
